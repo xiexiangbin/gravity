@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+
+<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+<!-- <!-- 引入 jQuery Mobile 样式 -->
+<!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"> -->
+
+<!-- 引入 jQuery 库 -->
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+<!-- 引入 jQuery Mobile 库 -->
+<script src="http://libs.baidu.com/jquerymobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+
+<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+<style>
+.font
+{
+  transform:rotate(90deg);
+  -ms-transform:rotate(90deg);   /* IE 9 */
+  -moz-transform:rotate(90deg);  /* Firefox */
+  -webkit-transform:rotate(90deg); /* Safari 和 Chrome */
+  -o-transform:rotate(90deg);  /* Opera */
+}
+
+</style>
+</head>
+<body style="position: fixed;width: 100%;height: 100%;">
+
+<div class="container">
+		
+<!-- 		<br><br>
+		<div class="btn btn-default btn-lg btn-block" id="up" >上</div>
+		<div class="btn btn-default btn-lg btn-block" id="down" >下</div>
+		<div class="btn btn-default btn-lg btn-block" id="left" >左</div>
+		<div class="btn btn-default btn-lg btn-block" id="right">右</div>
+		<div class="btn btn-default btn-lg btn-block" id="spacebar">空格 </div>
+		<div class="btn btn-default btn-lg btn-block" id="ctrl">ctrl </div> -->
+
+<!--           <div class="glyphicon glyphicon-chevron-right"></div> -->
+<!-- <div style="position: fixed;top: 20px;width: 100%;margin:0 auto">
+ -->
+
+<!--     <div class="row text-center" style="position: relative; ; top: 20px;>
+      <div class="col-xs-1">
+
+      </div>
+      <div class="col-xs-4 btn btn-default btn-lg  font" style="width:150px;height: 100px;line-height: 100px;font-size: 40px;" >
+          <span >Ctrl</span>
+      </div>
+      <div class="col-xs-2">
+
+      </div>
+      <div class="col-xs-4 col-xs-4 btn btn-default btn-lg font" style="width: 150px;height: 100px;line-height: 100px;font-size: 40px;">
+        <span >Shift</span>
+      </div>
+      <div class="col-xs-1">
+
+      </div>
+    </div>
+ -->
+<!-- </div>
+ -->
+
+
+<div style="position: fixed;width: 100%">
+
+    <div class="row text-center " style="position: fixed;top: 20px;width: 80%;left: 10%;">
+      <div class="col-xs-1">
+
+      </div>
+      <div id="ctrl" class="col-xs-4 btn btn-default btn-lg font " style="height: 100px;line-height: 100px;font-size: 40px;" >
+          <span  >Ctrl</span>
+      </div>
+      <div class="col-xs-2">
+
+      </div>
+      <div id="shift" class="col-xs-4 col-xs-4 btn btn-default btn-lg font" style="height: 100px;line-height: 100px;font-size: 40px;">
+        <span  >Shift</span>
+      </div>
+      <div class="col-xs-1">
+
+      </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div style="position: fixed;width: 100%">
+
+    <div class="row text-center " style="position: fixed;bottom: 20px;width: 80%;left: 10%;">
+      <div class="col-xs-1">
+
+      </div>
+      <div id="back" class="col-xs-4 btn btn-default btn-lg  " style="height: 100px;line-height: 100px;font-size: 50px;" >
+          <span class="glyphicon glyphicon-chevron-left" ></span>
+      </div>
+      <div class="col-xs-2">
+
+      </div>
+      <div id="go" class="col-xs-4 col-xs-4 btn btn-default btn-lg " style="height: 100px;line-height: 100px;font-size: 50px;">
+        <span class="glyphicon glyphicon-chevron-right" ></span>
+      </div>
+      <div class="col-xs-1">
+
+      </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+$(document).ready(function(){
+
+
+
+
+ 		$("#go").on("tap", function (event) {  
+      
+            event.preventDefault();//阻止触摸时浏览器的缩放、滚动条滚动  
+     
+
+
+           
+             $.ajax({url:"http://192.168.1.100:8000/press/up_arrow?rand="+Math.random(),async:true});
+            // alert("go")
+
+        });  
+
+   
+   // 长按事件       
+    $("#go").on(" taphold", function (event) {  
+      
+            event.preventDefault();//阻止触摸时浏览器的缩放、滚动条滚动  
+     
+
+
+           
+             $.ajax({url:"http://192.168.1.100:8000/longGo?rand="+Math.random(),async:true});
+     
+             console.log(Math.random())
+        });
+
+
+          
+        $("#go").on("touchend", function (event) {  
+            event.preventDefault();//阻止触摸时浏览器的缩放、滚动条滚动  
+            // htmlobj=$.ajax({url:"http://192.168.1.100:8000/press/up_arrow_cancer",async:true});
+            // 
+           $.ajax({url:"http://192.168.1.100:8000/json_no_write/go?rand="+Math.random(),async:true});
+                   // console.log("end")
+                 
+                  console.log(Math.random())
+        }); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+    $("#back").on("touchstart", function (event) {  
+      
+            event.preventDefault();//阻止触摸时浏览器的缩放、滚动条滚动  
+
+            $.ajax({url:"http://192.168.1.100:8000/press/down_arrow",async:true});
+        });  
+          
+
+    $("#shift").on("touchstart", function (event) {  
+      
+            event.preventDefault();//阻止触摸时浏览器的缩放、滚动条滚动  
+
+            $.ajax({url:"http://192.168.1.100:8000/press/shift",async:true});
+        });  
+
+
+    $("#ctrl").on("touchstart", function (event) {  
+      
+            event.preventDefault();//阻止触摸时浏览器的缩放、滚动条滚动  
+
+           $.ajax({url:"http://192.168.1.100:8000/press/ctrl",async:true});
+     });  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+	
+</body>
+</html>
